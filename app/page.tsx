@@ -27,6 +27,7 @@ import { generateInsightsData } from "@/lib/utils/transaction-analysis"
 import { getCachedInsights, setCachedInsights, formatCacheExpiry } from "@/lib/utils/insights-cache"
 import type { InsightsData } from "@/lib/utils/transaction-analysis"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Footer } from "@/components/footer"
 
 const ITEMS_PER_PAGE = 20
 
@@ -653,6 +654,9 @@ export default function DashboardPage() {
           </div>
         )}
       </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

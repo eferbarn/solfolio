@@ -62,7 +62,12 @@ export function WalletSearch({ variant = "default" }: WalletSearchProps) {
           }}
           className="w-64 font-mono text-sm"
         />
-        <Button onClick={handleSearch} disabled={!inputAddress.trim()} size="sm">
+        <Button
+          onClick={handleSearch}
+          disabled={!inputAddress.trim()}
+          size="sm"
+          className="bg-gradient-to-r from-[#9945FF] to-[#14F195] text-white hover:opacity-90"
+        >
           <Search className="h-4 w-4" />
         </Button>
       </div>
@@ -84,7 +89,11 @@ export function WalletSearch({ variant = "default" }: WalletSearchProps) {
           }}
           className="font-mono"
         />
-        <Button onClick={handleSearch} disabled={!inputAddress.trim()}>
+        <Button
+          onClick={handleSearch}
+          disabled={!inputAddress.trim()}
+          className="bg-gradient-to-r from-[#9945FF] to-[#14F195] text-white hover:opacity-90"
+        >
           <Search className="mr-2 h-4 w-4" />
           Search
         </Button>
