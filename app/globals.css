@@ -162,3 +162,28 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Adding custom animations for floating dots background */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(20px, -20px) scale(1.1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-15px, 15px) scale(0.9);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate(15px, 10px) scale(1.05);
+    opacity: 0.4;
+  }
+}
+
+.animate-float {
+  animation: float 20s ease-in-out infinite;
+}

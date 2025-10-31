@@ -28,6 +28,7 @@ import { getCachedInsights, setCachedInsights, formatCacheExpiry } from "@/lib/u
 import type { InsightsData } from "@/lib/utils/transaction-analysis"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Footer } from "@/components/footer"
+import { AnimatedBackground } from "@/components/animated-background"
 
 const ITEMS_PER_PAGE = 20
 
@@ -340,8 +341,10 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-background">
+      <AnimatedBackground />
+
       {/* Header */}
-      <header className="border-b border-border bg-card">
+      <header className="relative z-10 border-b border-border bg-card">
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <div>
             <h1 className="text-2xl font-bold">Solfolio</h1>
@@ -362,7 +365,7 @@ export default function DashboardPage() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="relative z-10 container mx-auto px-4 py-8">
         <WalletStatus />
 
         {!isConnected ? (
