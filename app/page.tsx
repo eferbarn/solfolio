@@ -346,24 +346,41 @@ export default function DashboardPage() {
 
       {/* Header */}
       <header className="relative z-10 border-b border-border bg-card">
-        <div className="container mx-auto flex items-center justify-between px-4 py-4">
-          <div>
-            <h1 className="text-2xl font-bold">Solfolio</h1>
-            <p className="hidden text-sm text-muted-foreground sm:block">
-              Solana Real-time Portfolio Tracker and PnL Analysis
-            </p>
-          </div>
-          <div className="flex items-center gap-3">
-            {isConnected && (
-              <>
-                <RefreshSettings currentInterval={refreshInterval} onIntervalChange={setRefreshInterval} />
-                <Button variant="outline" size="icon" onClick={refetch} disabled={isLoading} title="Refresh data">
-                  <RefreshCw className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
-                </Button>
-                <WalletSearch variant="compact" />
-              </>
-            )}
-            <ThemeToggle />
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            {/* Row 1 on mobile: Title + Refresh buttons */}
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <h1 className="text-2xl font-bold">Solfolio</h1>
+                <p className="hidden text-sm text-muted-foreground sm:block">
+                  Solana Real-time Portfolio Tracker and PnL Analysis
+                </p>
+              </div>
+              {isConnected && (
+                <div className="flex items-center gap-2 sm:hidden">
+                  <RefreshSettings currentInterval={refreshInterval} onIntervalChange={setRefreshInterval} />
+                  <Button variant="outline" size="icon" onClick={refetch} disabled={isLoading} title="Refresh data">
+                    <RefreshCw className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
+                  </Button>
+                </div>
+              )}
+            </div>
+
+            {/* Row 2 on mobile: Address button + Theme toggle */}
+            <div className="flex items-center gap-3">
+              {isConnected && (
+                <>
+                  <div className="hidden items-center gap-3 sm:flex">
+                    <RefreshSettings currentInterval={refreshInterval} onIntervalChange={setRefreshInterval} />
+                    <Button variant="outline" size="icon" onClick={refetch} disabled={isLoading} title="Refresh data">
+                      <RefreshCw className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
+                    </Button>
+                  </div>
+                  <WalletSearch variant="compact" />
+                </>
+              )}
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </header>
