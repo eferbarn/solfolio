@@ -3,8 +3,10 @@
  * Handles all API requests to Zerion with proper authentication
  */
 
+/** 
 import dotenv from "dotenv"
 dotenv.config()
+**/
 
 const ZERION_API_BASE = "https://api.zerion.io/v1"
 const ZERION_API_KEY = process.env.ZERION_API_KEY as string
