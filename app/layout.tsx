@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 
 import { Analytics } from "@vercel/analytics/next"
 import { WalletProvider } from "@/lib/wallet/context"
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 import { DM_Sans, Space_Mono, Geist as Font_Geist, Source_Serif_4 as Font_Source_Serif_4 } from "next/font/google"
@@ -22,7 +23,7 @@ const spaceMono = Space_Mono({ weight: ["400", "700"], subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Solfolio",
-  description: "Solana Real-time Portfolio Tracker and PnL analysis",
+  description: "Solfolio: Solana Portfolio Tracker - Powered by Zerion API",
   generator: "solfolio.eferbarn.com",
   icons: {
     icon: "/logo.png",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Solfolio",
     images: [
       {
-        url: "/BNR.png",
+        url: "/banner.png",
         width: 1200,
         height: 630,
         alt: "Solfolio - Solana Portfolio Tracker",
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Solfolio",
     description: "Solfolio: Solana Portfolio Tracker - Powered by Zerion API",
-    images: ["/BNR.png"],
+    images: ["/banner.png"],
   },
 }
 
@@ -57,9 +58,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`font-sans antialiased`}>
-        <WalletProvider>{children}</WalletProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="solfolio-theme">
+          <WalletProvider>{children}</WalletProvider>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

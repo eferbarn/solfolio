@@ -29,6 +29,7 @@ import type { InsightsData } from "@/lib/utils/transaction-analysis"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Footer } from "@/components/footer"
 import { AnimatedBackground } from "@/components/animated-background"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const ITEMS_PER_PAGE = 20
 
@@ -348,7 +349,9 @@ export default function DashboardPage() {
         <div className="container mx-auto flex items-center justify-between px-4 py-4">
           <div>
             <h1 className="text-2xl font-bold">Solfolio</h1>
-            <p className="text-sm text-muted-foreground">Solana Real-time Portfolio Tracker and PnL Analysis</p>
+            <p className="hidden text-sm text-muted-foreground sm:block">
+              Solana Real-time Portfolio Tracker and PnL Analysis
+            </p>
           </div>
           <div className="flex items-center gap-3">
             {isConnected && (
@@ -360,6 +363,7 @@ export default function DashboardPage() {
                 <WalletSearch variant="compact" />
               </>
             )}
+            <ThemeToggle />
           </div>
         </div>
       </header>
