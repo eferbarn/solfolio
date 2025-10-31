@@ -367,7 +367,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Row 2 on mobile: Address button + Theme toggle */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center gap-3 sm:justify-end">
               {isConnected && (
                 <>
                   <div className="hidden items-center gap-3 sm:flex">
